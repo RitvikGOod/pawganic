@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pawganic Treats 🐾 — Reviews</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  :root{--cream:#fffbe8;--orange:#ff7b2f;--orange-light:#ffb347;--green:#4caf50;--pink:#ff6b9d;--yellow:#ffe135;--brown:#7b4f2e;--dark:#2c1a0e;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+
+  nav{position:sticky;top:0;z-index:999;background:linear-gradient(90deg,var(--orange),var(--pink));display:flex;align-items:center;justify-content:space-between;padding:14px 40px;box-shadow:0 4px 20px rgba(0,0,0,.15);}
+  .nav-logo{font-family:'Pacifico',cursive;font-size:1.8rem;color:#fff;text-decoration:none;letter-spacing:1px;}
+  .nav-logo span{color:var(--yellow);}
+  .nav-links{display:flex;gap:6px;list-style:none;}
+  .nav-links a{color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;padding:7px 16px;border-radius:50px;transition:background .2s;}
+  .nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.25);}
+
+  section{padding:80px 24px;}
+  .section-title{font-family:'Pacifico',cursive;font-size:clamp(1.9rem,4vw,3rem);text-align:center;margin-bottom:10px;}
+  .section-sub{text-align:center;color:#888;font-size:1.05rem;margin-bottom:52px;font-weight:600;}
+  .pill-divider{width:60px;height:6px;border-radius:99px;background:linear-gradient(90deg,var(--orange),var(--pink));margin:0 auto 14px;}
+
+  .page-banner{background:linear-gradient(135deg,#fff9c4,#ffe0f0);text-align:center;padding:70px 24px 60px;position:relative;overflow:hidden;}
+  .page-banner::before{content:'🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾';position:absolute;top:-10px;left:0;right:0;font-size:2.5rem;letter-spacing:18px;opacity:.06;white-space:nowrap;animation:scroll-paws 18s linear infinite;}
+  @keyframes scroll-paws{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .page-banner h1{font-family:'Pacifico',cursive;font-size:clamp(2.2rem,5vw,4rem);color:var(--orange);text-shadow:3px 3px 0 var(--brown);margin-bottom:12px;animation:slideUp .8s ease;}
+  .page-banner p{font-size:1.1rem;color:var(--brown);font-weight:600;animation:slideUp 1s ease;}
+  @keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+  /* STATS BANNER */
+  .stats-row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;padding:48px 24px;background:#fff;}
+  .stat{text-align:center;}
+  .stat-num{font-family:'Pacifico',cursive;font-size:2.8rem;color:var(--orange);}
+  .stat-label{font-size:.9rem;color:#888;font-weight:700;margin-top:4px;}
+
+  /* REVIEWS */
+  #reviews{background:var(--cream);}
+  .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;max-width:1100px;margin:0 auto;}
+  .review-card{background:#fff;border-radius:24px;padding:30px 26px;box-shadow:0 6px 28px rgba(0,0,0,.07);transition:transform .2s;}
+  .review-card:hover{transform:translateY(-6px);}
+  .stars{font-size:1.3rem;margin-bottom:10px;}
+  .review-text{font-size:.95rem;color:#555;line-height:1.7;margin-bottom:16px;}
+  .reviewer{display:flex;align-items:center;gap:12px;}
+  .reviewer-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+  .reviewer-name{font-weight:800;font-size:.9rem;}
+  .reviewer-sub{font-size:.78rem;color:#aaa;}
+
+  /* NEWSLETTER */
+  #newsletter{background:linear-gradient(135deg,var(--orange),var(--pink));text-align:center;padding:70px 24px;}
+  #newsletter h2{font-family:'Pacifico',cursive;font-size:2.2rem;color:#fff;margin-bottom:12px;}
+  #newsletter p{color:rgba(255,255,255,.85);font-size:1rem;margin-bottom:30px;font-weight:600;}
+  .nl-form{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+  .nl-form input{padding:14px 24px;border:none;border-radius:50px;font-family:'Nunito',sans-serif;font-size:1rem;width:300px;outline:none;}
+  .nl-form button{padding:14px 32px;border-radius:50px;border:3px solid #fff;background:transparent;color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;cursor:pointer;transition:background .2s,color .2s;}
+  .nl-form button:hover{background:#fff;color:var(--orange);}
+
+  footer{background:var(--dark);color:#ccc;text-align:center;padding:40px 24px;}
+  .foot-logo{font-family:'Pacifico',cursive;font-size:1.8rem;color:var(--orange);margin-bottom:12px;}
+  footer p{font-size:.9rem;color:#999;line-height:1.7;}
+  .socials{display:flex;justify-content:center;gap:16px;margin:20px 0;}
+  .social-btn{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:1.3rem;text-decoration:none;transition:background .2s;}
+  .social-btn:hover{background:var(--orange);}
+  .foot-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:20px;}
+  .foot-links a{color:#aaa;text-decoration:none;font-size:.85rem;font-weight:700;transition:color .2s;}
+  .foot-links a:hover{color:var(--orange);}
+  .foot-divider{height:1px;background:rgba(255,255,255,.08);margin:24px 0;}
+  .foot-copy{font-size:.78rem;color:#666;}
+  .floating-paw{position:fixed;bottom:30px;right:30px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--pink));display:flex;align-items:center;justify-content:center;font-size:1.6rem;cursor:pointer;z-index:998;box-shadow:0 6px 24px rgba(255,123,47,.5);animation:pulse 2.5s ease-in-out infinite;text-decoration:none;}
+  @keyframes pulse{0%,100%{box-shadow:0 6px 24px rgba(255,123,47,.5)}50%{box-shadow:0 6px 40px rgba(255,123,47,.8),0 0 0 12px rgba(255,123,47,.1)}}
+
+  @media(max-width:700px){
+    nav{padding:12px 18px;}
+    .nav-links{gap:4px;}
+    .nav-links a{padding:5px 10px;font-size:.8rem;}
+    .stats-row{gap:24px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Paw<span>ganic</span> 🐾</a>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 Home & Treats</a></li>
+    <li><a href="about.html">🐶 About</a></li>
+    <li><a href="reviews.html" class="active">⭐ Reviews</a></li>
+    <li><a href="contact.html">📬 Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-banner">
+  <h1>Happy Tails 🐶</h1>
+  <p>Real stories from real dog parents who love Pawganic!</p>
+</div>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Happy Dogs</div></div>
+  <div class="stat"><div class="stat-num">4.9 ⭐</div><div class="stat-label">Average Rating</div></div>
+  <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Orders Delivered</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Natural Ingredients</div></div>
+</div>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="pill-divider"></div>
+  <h2 class="section-title" style="color:var(--orange)">What Dog Parents Say 💬</h2>
+  <p class="section-sub">Every wag counts — here's what our pack is saying!</p>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"My Labrador Bruno goes absolutely crazy for the Peanut Butter Bites! He used to be fussy but now he finishes every crumb. So glad I found Pawganic!"</p>
+      <div class="reviewer"><div class="reviewer-avatar" style="background:#ffe0b2;">🐕</div><div><div class="reviewer-name">Priya Sharma</div><div class="reviewer-sub">Bruno's mom • Hyderabad</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"I ordered the Birthday Pupcake for my dog's 2nd birthday and it was absolutely perfect. She loved every bite and it looked gorgeous too!"</p>
+      <div class="reviewer"><div class="reviewer-avatar" style="background:#fce4ec;">🐩</div><div><div class="reviewer-name">Rahul Mehta</div><div class="reviewer-sub">Bella's dad • Bangalore</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"As a vet, I'm very careful about what treats my patients eat. Pawganic is the only homemade brand I actively recommend to pet parents!"</p>
+      <div class="reviewer"><div class="reviewer-avatar" style="background:#e8f5e9;">🩺</div><div><div class="reviewer-name">Dr. Ananya Rao</div><div class="reviewer-sub">Veterinarian • Chennai</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"The Sweet Potato Chews are a game changer for my senior Beagle. Her energy has improved so much and her coat is shinier than ever. Thank you Pawganic!"</p>
+      <div class="reviewer"><div class="reviewer-avatar" style="background:#fff9c4;">🐶</div><div><div class="reviewer-name">Meena Iyer</div><div class="reviewer-sub">Coco's mom • Mumbai</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"I bought the Chicken Jerky Strips for training my Golden pup and he learned 5 new commands in a week — the treats are truly that motivating!"</p>
+      <div class="reviewer"><div class="reviewer-avatar" style="background:#ffe0b2;">🦮</div><div><div class="reviewer-name">Arjun Kapoor</div><div class="reviewer-sub">Mango's dad • Pune</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"Packaging is adorable, delivery was super fast, and my dog literally heard the bag open from the other room! Will absolutely order again and again."</p>
+      <div class="reviewer"><div class="reviewer-avatar" style="background:#e1bee7;">🐾</div><div><div class="reviewer-name">Shruti Nair</div><div class="reviewer-sub">Oreo's mom • Delhi</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <h2>🐾 Join the Pawganic Pack!</h2>
+  <p>Get new flavour alerts, exclusive discounts & cute dog content — straight to your inbox!</p>
+  <div class="nl-form">
+    <input type="email" placeholder="your@email.com"/>
+    <button>Subscribe 🐶</button>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Pawganic Treats 🐾</div>
+  <p>Homemade love in every bite — crafted for dogs, by a dog lover.</p>
+  <div class="socials">
+    <a class="social-btn" href="#">📸</a><a class="social-btn" href="#">💬</a>
+    <a class="social-btn" href="#">🐦</a><a class="social-btn" href="#">▶️</a>
+  </div>
+  <div class="foot-links">
+    <a href="index.html">Home & Treats</a>
+    <a href="about.html">About</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="foot-divider"></div>
+  <p class="foot-copy">© 2025 Pawganic Treats. Made with 🐾 & love. All rights reserved.</p>
+</footer>
+
+<a class="floating-paw" href="contact.html" title="Order Now">🐾</a>
+</body>
+</html>

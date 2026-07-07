@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pawganic Treats 🐾 — Fresh Homemade Dog Treats</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  :root{--cream:#fffbe8;--orange:#ff7b2f;--orange-light:#ffb347;--green:#4caf50;--pink:#ff6b9d;--yellow:#ffe135;--brown:#7b4f2e;--dark:#2c1a0e;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:999;background:linear-gradient(90deg,var(--orange),var(--pink));display:flex;align-items:center;justify-content:space-between;padding:14px 40px;box-shadow:0 4px 20px rgba(0,0,0,.15);}
+  .nav-logo{font-family:'Pacifico',cursive;font-size:1.8rem;color:#fff;text-decoration:none;letter-spacing:1px;}
+  .nav-logo span{color:var(--yellow);}
+  .nav-links{display:flex;gap:6px;list-style:none;}
+  .nav-links a{color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;padding:7px 16px;border-radius:50px;transition:background .2s;}
+  .nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.25);}
+
+  /* FRESHNESS BANNER */
+  .fresh-banner{background:var(--green);color:#fff;text-align:center;padding:10px 20px;font-weight:800;font-size:.9rem;letter-spacing:.5px;}
+  .fresh-banner span{background:rgba(255,255,255,.2);border-radius:50px;padding:2px 12px;margin:0 6px;}
+
+  /* HERO */
+  #home{background:linear-gradient(135deg,#ffe0b2 0%,#fffde7 40%,#e8f5e9 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:90px 24px 80px;position:relative;overflow:hidden;}
+  #home::before{content:'🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾';position:absolute;top:-10px;left:0;right:0;font-size:2.5rem;letter-spacing:18px;opacity:.08;white-space:nowrap;animation:scroll-paws 18s linear infinite;}
+  @keyframes scroll-paws{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .hero-badge{background:var(--green);color:#fff;border-radius:50px;padding:6px 20px;font-size:.85rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;animation:pop .6s ease;}
+  @keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+  .hero-title{font-family:'Pacifico',cursive;font-size:clamp(2.8rem,7vw,5.5rem);color:var(--orange);text-shadow:4px 4px 0 var(--brown);line-height:1.1;margin-bottom:16px;animation:slideUp .8s ease;}
+  .hero-title .paw{color:var(--pink);}
+  @keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+  .hero-sub{font-size:1.25rem;color:var(--brown);max-width:560px;font-weight:600;margin-bottom:36px;line-height:1.6;animation:slideUp 1s ease;}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;animation:slideUp 1.2s ease;}
+  .btn{display:inline-block;padding:14px 36px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;text-decoration:none;cursor:pointer;border:none;transition:transform .18s,box-shadow .18s;}
+  .btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 24px rgba(0,0,0,.18);}
+  .btn-primary{background:var(--orange);color:#fff;box-shadow:0 4px 14px rgba(255,123,47,.4);}
+  .btn-secondary{background:var(--pink);color:#fff;box-shadow:0 4px 14px rgba(255,107,157,.4);}
+  .hero-dogs{font-size:5rem;margin-top:40px;animation:bounce 2s infinite;}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+  /* MADE TO ORDER STRIP */
+  .mto-strip{background:linear-gradient(90deg,var(--brown),#a0622a);display:flex;justify-content:center;gap:48px;flex-wrap:wrap;padding:22px 24px;}
+  .mto-item{display:flex;align-items:center;gap:10px;color:#fff;}
+  .mto-item .icon{font-size:1.6rem;}
+  .mto-item strong{font-size:.95rem;font-weight:800;display:block;}
+  .mto-item small{font-size:.78rem;opacity:.8;}
+
+  /* SECTIONS */
+  section{padding:80px 24px;}
+  .section-title{font-family:'Pacifico',cursive;font-size:clamp(1.9rem,4vw,3rem);text-align:center;margin-bottom:10px;}
+  .section-sub{text-align:center;color:#888;font-size:1.05rem;margin-bottom:52px;font-weight:600;}
+  .pill-divider{width:60px;height:6px;border-radius:99px;background:linear-gradient(90deg,var(--orange),var(--pink));margin:0 auto 14px;}
+
+  /* WHY US */
+  #why{background:linear-gradient(135deg,#fff8e1,#ffe0f0);}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;max-width:1000px;margin:0 auto;}
+  .why-card{background:#fff;border-radius:24px;padding:34px 24px;text-align:center;box-shadow:0 6px 28px rgba(0,0,0,.08);transition:transform .22s,box-shadow .22s;border-top:5px solid var(--orange);}
+  .why-card:nth-child(2){border-top-color:var(--pink);}
+  .why-card:nth-child(3){border-top-color:var(--green);}
+  .why-card:nth-child(4){border-top-color:var(--yellow);}
+  .why-card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(0,0,0,.13);}
+  .why-icon{font-size:3rem;margin-bottom:14px;}
+  .why-card h3{font-size:1.1rem;font-weight:800;margin-bottom:8px;}
+  .why-card p{font-size:.9rem;color:#666;line-height:1.5;}
+
+  /* FILTER BAR */
+  #products{background:var(--cream);}
+  .filter-bar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;}
+  .filter-btn{padding:9px 22px;border-radius:50px;border:2px solid #e0e0e0;background:#fff;font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .2s;color:var(--dark);}
+  .filter-btn:hover,.filter-btn.active{background:var(--orange);color:#fff;border-color:var(--orange);}
+
+  /* PRODUCT CARDS */
+  .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:32px;max-width:1100px;margin:0 auto;}
+  .product-card{background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.09);transition:transform .22s,box-shadow .22s;position:relative;}
+  .product-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(0,0,0,.14);}
+  .product-card.hidden{display:none;}
+
+  /* BADGES on card */
+  .card-badges{position:absolute;top:14px;left:14px;display:flex;flex-direction:column;gap:5px;z-index:2;}
+  .badge{border-radius:50px;padding:4px 11px;font-size:.72rem;font-weight:800;color:#fff;}
+  .badge-fresh{background:var(--green);}
+  .badge-popular{background:var(--orange);}
+  .badge-new{background:var(--pink);}
+  .badge-veg{background:#8bc34a;}
+  .badge-custom{background:#9c27b0;}
+
+  .product-img{height:170px;display:flex;align-items:center;justify-content:center;font-size:5rem;}
+  .product-img.c1{background:linear-gradient(135deg,#ffe0b2,#fff9c4);}
+  .product-img.c2{background:linear-gradient(135deg,#f8bbd0,#fce4ec);}
+  .product-img.c3{background:linear-gradient(135deg,#c8e6c9,#e8f5e9);}
+  .product-img.c4{background:linear-gradient(135deg,#ffe0cc,#ffd6e7);}
+  .product-img.c5{background:linear-gradient(135deg,#dcedc8,#f0f4c3);}
+  .product-img.c6{background:linear-gradient(135deg,#e1bee7,#f3e5f5);}
+
+  .product-info{padding:20px;}
+  .product-name{font-weight:800;font-size:1.1rem;margin-bottom:4px;}
+  .product-desc{font-size:.86rem;color:#777;line-height:1.5;margin-bottom:10px;}
+
+  /* INGREDIENTS SECTION inside card */
+  .ingredients-toggle{background:none;border:1px dashed #ddd;border-radius:10px;padding:7px 14px;font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:700;color:#888;cursor:pointer;width:100%;text-align:left;margin-bottom:10px;transition:all .2s;}
+  .ingredients-toggle:hover{border-color:var(--orange);color:var(--orange);}
+  .ingredients-list{display:none;background:#fffbe8;border-radius:10px;padding:12px;margin-bottom:10px;font-size:.82rem;color:#555;line-height:1.8;}
+  .ingredients-list.open{display:block;}
+  .ing-item{display:inline-flex;align-items:center;gap:4px;background:#fff;border-radius:50px;padding:2px 10px;margin:2px;border:1px solid #eee;font-size:.78rem;}
+
+  /* NUTRITIONAL HIGHLIGHTS */
+  .nutr-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+  .nutr-chip{background:#f0f9f0;color:var(--green);border-radius:50px;padding:3px 10px;font-size:.75rem;font-weight:800;}
+
+  .product-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px;}
+  .tag{background:#f0f0f0;border-radius:50px;padding:3px 11px;font-size:.75rem;font-weight:700;color:#555;}
+
+  /* SIZE SELECTOR */
+  .size-selector{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap;}
+  .size-btn{padding:5px 14px;border-radius:50px;border:2px solid #eee;background:#fff;font-family:'Nunito',sans-serif;font-weight:700;font-size:.8rem;cursor:pointer;transition:all .18s;}
+  .size-btn:hover,.size-btn.sel{border-color:var(--orange);background:var(--orange);color:#fff;}
+
+  .product-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #f5f5f5;padding-top:12px;}
+  .price-block{}
+  .product-price{font-size:1.2rem;font-weight:900;color:var(--orange);}
+  .product-per{font-size:.73rem;color:#aaa;font-weight:600;}
+  .btn-small{background:linear-gradient(90deg,var(--orange),var(--pink));color:#fff;border:none;border-radius:50px;padding:9px 20px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.85rem;cursor:pointer;transition:transform .18s;}
+  .btn-small:hover{transform:scale(1.07);}
+
+  /* FRESHNESS PROMISE SECTION */
+  #fresh-promise{background:linear-gradient(135deg,#e8f5e9,#fffde7);padding:60px 24px;}
+  .promise-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+  .promise-visual{font-size:7rem;text-align:center;animation:bounce 3s infinite;}
+  .promise-content h2{font-family:'Pacifico',cursive;font-size:2rem;color:var(--green);margin-bottom:16px;}
+  .promise-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .promise-list li{display:flex;align-items:flex-start;gap:12px;font-size:.95rem;color:#444;line-height:1.5;}
+  .promise-list li .check{color:var(--green);font-size:1.2rem;flex-shrink:0;}
+
+  /* ADD PRODUCT */
+  #add-product{background:linear-gradient(135deg,#e8f5e9,#fffde7);}
+  .form-box{max-width:700px;margin:0 auto;background:#fff;border-radius:28px;padding:44px 40px;box-shadow:0 10px 40px rgba(0,0,0,.1);}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
+  .form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:20px;}
+  .form-group label{font-weight:800;font-size:.9rem;color:var(--brown);}
+  .form-group input,.form-group textarea,.form-group select{border:2px solid #eee;border-radius:14px;padding:12px 16px;font-family:'Nunito',sans-serif;font-size:.95rem;color:var(--dark);transition:border-color .2s;outline:none;}
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--orange);}
+  .form-group textarea{resize:vertical;min-height:100px;}
+  .form-submit{width:100%;padding:16px;border-radius:50px;background:linear-gradient(90deg,var(--orange),var(--pink));color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.1rem;border:none;cursor:pointer;transition:transform .18s,box-shadow .18s;}
+  .form-submit:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(255,123,47,.4);}
+  #form-success{display:none;margin-top:18px;padding:14px 20px;background:#e8f5e9;border-radius:14px;color:var(--green);font-weight:800;text-align:center;}
+
+  /* NO NASTIES */
+  #no-nasties{background:var(--dark);padding:56px 24px;text-align:center;}
+  #no-nasties h2{font-family:'Pacifico',cursive;font-size:2rem;color:var(--yellow);margin-bottom:10px;}
+  #no-nasties p{color:#aaa;margin-bottom:36px;font-size:.95rem;}
+  .nasties-grid{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;max-width:800px;margin:0 auto;}
+  .nasty-item{background:rgba(255,255,255,.07);border-radius:18px;padding:18px 22px;min-width:130px;}
+  .nasty-icon{font-size:1.8rem;margin-bottom:6px;}
+  .nasty-label{color:#fff;font-weight:800;font-size:.85rem;display:block;}
+  .nasty-sub{color:#888;font-size:.75rem;}
+
+  /* FOOTER */
+  footer{background:var(--dark);color:#ccc;text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,.07);}
+  .foot-logo{font-family:'Pacifico',cursive;font-size:1.8rem;color:var(--orange);margin-bottom:12px;}
+  footer p{font-size:.9rem;color:#999;line-height:1.7;}
+  .socials{display:flex;justify-content:center;gap:16px;margin:20px 0;}
+  .social-btn{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:1.3rem;text-decoration:none;transition:background .2s;}
+  .social-btn:hover{background:var(--orange);}
+  .foot-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:20px;}
+  .foot-links a{color:#aaa;text-decoration:none;font-size:.85rem;font-weight:700;transition:color .2s;}
+  .foot-links a:hover{color:var(--orange);}
+  .foot-divider{height:1px;background:rgba(255,255,255,.08);margin:24px 0;}
+  .foot-copy{font-size:.78rem;color:#666;}
+  .floating-paw{position:fixed;bottom:30px;right:30px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--pink));display:flex;align-items:center;justify-content:center;font-size:1.6rem;cursor:pointer;z-index:998;box-shadow:0 6px 24px rgba(255,123,47,.5);animation:pulse 2.5s ease-in-out infinite;text-decoration:none;}
+  @keyframes pulse{0%,100%{box-shadow:0 6px 24px rgba(255,123,47,.5)}50%{box-shadow:0 6px 40px rgba(255,123,47,.8),0 0 0 12px rgba(255,123,47,.1)}}
+
+  @media(max-width:700px){
+    nav{padding:12px 18px;}
+    .nav-links{gap:4px;}
+    .nav-links a{padding:5px 10px;font-size:.8rem;}
+    .form-row{grid-template-columns:1fr;}
+    .form-box{padding:28px 18px;}
+    .mto-strip{gap:20px;}
+    .promise-inner{grid-template-columns:1fr;}
+    .promise-visual{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- FRESHNESS TICKER -->
+<div class="fresh-banner">
+  🥣 Made Fresh <span>Only When You Order</span> — No Preservatives, No Stock Sitting on Shelves 🐾
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Paw<span>ganic</span> 🐾</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">🏠 Home & Treats</a></li>
+    <li><a href="about.html">🐶 About</a></li>
+    <li><a href="reviews.html">⭐ Reviews</a></li>
+    <li><a href="contact.html">📬 Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-badge">🌿 100% Natural • Baked to Order • No Preservatives</div>
+  <h1 class="hero-title">Paw<span class="paw">ganic</span><br/>Treats 🐾</h1>
+  <p class="hero-sub">Wholesome, homemade dog treats baked fresh in my kitchen — <em>only after you place your order</em>. Real ingredients. No fillers. Just love in every bite.</p>
+  <div class="hero-btns">
+    <a href="#products" class="btn btn-primary">🍖 Shop Fresh Treats</a>
+    <a href="about.html" class="btn btn-secondary">🐶 Our Story</a>
+  </div>
+  <div class="hero-dogs">🐕 🐩 🐾</div>
+</section>
+
+<!-- MADE TO ORDER STRIP -->
+<div class="mto-strip">
+  <div class="mto-item"><div class="icon">🧑‍🍳</div><div><strong>Made to Order</strong><small>Baked fresh after every order</small></div></div>
+  <div class="mto-item"><div class="icon">🏠</div><div><strong>Home Kitchen</strong><small>Small batches, big love</small></div></div>
+  <div class="mto-item"><div class="icon">🌿</div><div><strong>Zero Preservatives</strong><small>No chemicals, ever</small></div></div>
+  <div class="mto-item"><div class="icon">🚚</div><div><strong>Ships Pan-India</strong><small>Hyderabad: same/next day</small></div></div>
+  <div class="mto-item"><div class="icon">📦</div><div><strong>Ready in 24–48hrs</strong><small>Fresh from oven to your door</small></div></div>
+</div>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="pill-divider"></div>
+  <h2 class="section-title" style="color:var(--brown)">Why Dogs Love Us 🐾</h2>
+  <p class="section-sub">Made in small batches, packed with goodness — never mass-produced</p>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">🌾</div><h3>All Natural</h3><p>No preservatives, no artificial colours or flavours — just real, whole-food ingredients you can actually read and recognise.</p></div>
+    <div class="why-card"><div class="why-icon">👩‍🍳</div><h3>Made to Order</h3><p>Every treat is baked fresh only after you order. You'll never get something that's been sitting in a warehouse for weeks.</p></div>
+    <div class="why-card"><div class="why-icon">💚</div><h3>Vet-Safe Ingredients</h3><p>Every ingredient is individually verified to be safe for dogs. No xylitol, no onion, no grapes — only dog-approved goodness.</p></div>
+    <div class="why-card"><div class="why-icon">🐕</div><h3>All Breeds & Sizes</h3><p>Tiny Chihuahua or giant Saint Bernard — we size the treats right and choose ingredients appropriate for every dog.</p></div>
+  </div>
+</section>
+
+<!-- NO NASTIES SECTION -->
+<section id="no-nasties">
+  <h2>What We NEVER Use 🚫</h2>
+  <p>Unlike commercial treats, every Pawganic batch is completely free from:</p>
+  <div class="nasties-grid">
+    <div class="nasty-item"><div class="nasty-icon">❌</div><span class="nasty-label">Preservatives</span><span class="nasty-sub">No BHA, BHT, or ethoxyquin</span></div>
+    <div class="nasty-item"><div class="nasty-icon">❌</div><span class="nasty-label">Artificial Colours</span><span class="nasty-sub">No dyes or synthetic colouring</span></div>
+    <div class="nasty-item"><div class="nasty-icon">❌</div><span class="nasty-label">Xylitol</span><span class="nasty-sub">Toxic to dogs — never ever</span></div>
+    <div class="nasty-item"><div class="nasty-icon">❌</div><span class="nasty-label">Fillers & Corn Syrup</span><span class="nasty-sub">No empty calories</span></div>
+    <div class="nasty-item"><div class="nasty-icon">❌</div><span class="nasty-label">Onion & Garlic</span><span class="nasty-sub">Both toxic to dogs</span></div>
+    <div class="nasty-item"><div class="nasty-icon">❌</div><span class="nasty-label">Mystery Ingredients</span><span class="nasty-sub">You'll know every single thing inside</span></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="pill-divider"></div>
+  <h2 class="section-title" style="color:var(--orange)">Fresh Treat Menu 🍪</h2>
+  <p class="section-sub">Click any treat to see full ingredients • Filter by your dog's needs</p>
+
+  <!-- FILTER -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterProducts('all',this)">🐾 All Treats</button>
+    <button class="filter-btn" onclick="filterProducts('veg',this)">🥦 Vegetarian</button>
+    <button class="filter-btn" onclick="filterProducts('protein',this)">💪 High Protein</button>
+    <button class="filter-btn" onclick="filterProducts('grainfree',this)">🌾 Grain-Free</button>
+    <button class="filter-btn" onclick="filterProducts('senior',this)">🦴 Senior Dogs</button>
+    <button class="filter-btn" onclick="filterProducts('puppy',this)">🐶 Puppies</button>
+    <button class="filter-btn" onclick="filterProducts('celebration',this)">🎉 Celebration</button>
+  </div>
+
+  <div class="products-grid">
+
+    <!-- PEANUT BUTTER BITES -->
+    <div class="product-card" data-tags="veg grainfree puppy">
+      <div class="card-badges"><span class="badge badge-popular">⭐ Best Seller</span><span class="badge badge-fresh">🌿 Veg</span></div>
+      <div class="product-img c1">🥜</div>
+      <div class="product-info">
+        <div class="product-name">Peanut Butter Bites</div>
+        <div class="product-desc">Crunchy oat-based bites with natural peanut butter and banana. A classic that every dog goes crazy for!</div>
+        <div class="nutr-row">
+          <span class="nutr-chip">💪 Protein</span>
+          <span class="nutr-chip">⚡ Energy</span>
+          <span class="nutr-chip">🫀 Heart Health</span>
+        </div>
+        <button class="ingredients-toggle" onclick="toggleIng(this)">🌿 See Full Ingredients ▾</button>
+        <div class="ingredients-list">
+          <strong style="display:block;margin-bottom:6px;color:var(--brown);">Every single ingredient:</strong>
+          <span class="ing-item">🌾 Whole Oat Flour</span>
+          <span class="ing-item">🥜 Natural Peanut Butter (xylitol-free)</span>
+          <span class="ing-item">🍌 Ripe Banana</span>
+          <span class="ing-item">🥚 Free-range Egg</span>
+          <span class="ing-item">🍯 Raw Honey (trace)</span>
+          <br/><small style="color:#e74c3c;font-weight:700;margin-top:6px;display:block;">⚠️ Contains: Peanuts, Egg, Gluten (oats)</small>
+        </div>
+        <div class="product-tags"><span class="tag">🌾 Grain-Free Option</span><span class="tag">🐾 All Sizes</span><span class="tag">🐶 Puppy Safe</span></div>
+        <div class="size-selector">
+          <button class="size-btn sel" onclick="selectSize(this,'₹249')">Small 100g</button>
+          <button class="size-btn" onclick="selectSize(this,'₹399')">Medium 200g</button>
+          <button class="size-btn" onclick="selectSize(this,'₹699')">Large 400g</button>
+        </div>
+        <div class="product-footer">
+          <div class="price-block"><div class="product-price">₹249</div><div class="product-per">per pack • baked fresh to order</div></div>
+          <button class="btn-small" onclick="orderNow('Peanut Butter Bites')">Order Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SWEET POTATO CHEWS -->
+    <div class="product-card" data-tags="veg grainfree senior">
+      <div class="card-badges"><span class="badge badge-veg">🌿 Pure Veg</span></div>
+      <div class="product-img c2">🍠</div>
+      <div class="product-info">
+        <div class="product-name">Sweet Potato Chews</div>
+        <div class="product-desc">Slow-baked sweet potato strips — naturally sweet, chewy, and packed with vitamins A and C. Great for sensitive stomachs.</div>
+        <div class="nutr-row">
+          <span class="nutr-chip">👁️ Vitamin A</span>
+          <span class="nutr-chip">🛡️ Antioxidants</span>
+          <span class="nutr-chip">💚 Low Fat</span>
+        </div>
+        <button class="ingredients-toggle" onclick="toggleIng(this)">🌿 See Full Ingredients ▾</button>
+        <div class="ingredients-list">
+          <strong style="display:block;margin-bottom:6px;color:var(--brown);">Every single ingredient:</strong>
+          <span class="ing-item">🍠 Fresh Sweet Potato</span>
+          <span class="ing-item">🫒 Cold-pressed Coconut Oil (trace)</span>
+          <br/><small style="color:var(--green);font-weight:700;margin-top:6px;display:block;">✅ Only 2 ingredients! Grain-free, egg-free, nut-free</small>
+        </div>
+        <div class="product-tags"><span class="tag">🥕 Only 2 Ingredients</span><span class="tag">💚 Low Fat</span><span class="tag">🦴 Senior Safe</span></div>
+        <div class="size-selector">
+          <button class="size-btn sel" onclick="selectSize(this,'₹279')">Small 100g</button>
+          <button class="size-btn" onclick="selectSize(this,'₹449')">Medium 200g</button>
+          <button class="size-btn" onclick="selectSize(this,'₹799')">Large 400g</button>
+        </div>
+        <div class="product-footer">
+          <div class="price-block"><div class="product-price">₹279</div><div class="product-per">per pack • baked fresh to order</div></div>
+          <button class="btn-small" onclick="orderNow('Sweet Potato Chews')">Order Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SALMON CRUNCHIES -->
+    <div class="product-card" data-tags="protein grainfree senior">
+      <div class="card-badges"><span class="badge badge-popular">🔥 Popular</span></div>
+      <div class="product-img c3">🐟</div>
+      <div class="product-info">
+        <div class="product-name">Salmon Crunchies</div>
+        <div class="product-desc">Omega-3 rich salmon treats that support shiny coat and healthy joints. Especially great for senior and active dogs.</div>
+        <div class="nutr-row">
+          <span class="nutr-chip">🐟 Omega-3</span>
+          <span class="nutr-chip">🦴 Joint Support</span>
+          <span class="nutr-chip">✨ Shiny Coat</span>
+        </div>
+        <button class="ingredients-toggle" onclick="toggleIng(this)">🌿 See Full Ingredients ▾</button>
+        <div class="ingredients-list">
+          <strong style="display:block;margin-bottom:6px;color:var(--brown);">Every single ingredient:</strong>
+          <span class="ing-item">🐟 Fresh Salmon</span>
+          <span class="ing-item">🌾 Rice Flour</span>
+          <span class="ing-item">🥚 Free-range Egg</span>
+          <span class="ing-item">🌿 Dried Parsley</span>
+          <br/><small style="color:#e74c3c;font-weight:700;margin-top:6px;display:block;">⚠️ Contains: Fish, Egg. Gluten-free.</small>
+        </div>
+        <div class="product-tags"><span class="tag">🐟 Omega-3</span><span class="tag">🌾 Gluten-Free</span><span class="tag">🦴 Joint Health</span></div>
+        <div class="size-selector">
+          <button class="size-btn sel" onclick="selectSize(this,'₹319')">Small 100g</button>
+          <button class="size-btn" onclick="selectSize(this,'₹549')">Medium 200g</button>
+        </div>
+        <div class="product-footer">
+          <div class="price-block"><div class="product-price">₹319</div><div class="product-per">per pack • baked fresh to order</div></div>
+          <button class="btn-small" onclick="orderNow('Salmon Crunchies')">Order Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BIRTHDAY PUPCAKE -->
+    <div class="product-card" data-tags="celebration veg puppy">
+      <div class="card-badges"><span class="badge badge-custom">🎂 Custom</span><span class="badge badge-new">✨ New</span></div>
+      <div class="product-img c4">🎂</div>
+      <div class="product-info">
+        <div class="product-name">Birthday Pupcake</div>
+        <div class="product-desc">A dog-safe celebration cake made from carrot, oat flour and banana with a yogurt frosting. Personalise with your pup's name!</div>
+        <div class="nutr-row">
+          <span class="nutr-chip">🥕 Beta-carotene</span>
+          <span class="nutr-chip">🦷 Calcium</span>
+        </div>
+        <button class="ingredients-toggle" onclick="toggleIng(this)">🌿 See Full Ingredients ▾</button>
+        <div class="ingredients-list">
+          <strong style="display:block;margin-bottom:6px;color:var(--brown);">Every single ingredient:</strong>
+          <span class="ing-item">🥕 Fresh Carrot</span>
+          <span class="ing-item">🌾 Oat Flour</span>
+          <span class="ing-item">🍌 Banana</span>
+          <span class="ing-item">🥚 Free-range Egg</span>
+          <span class="ing-item">🫙 Plain Yogurt (frosting)</span>
+          <span class="ing-item">🍯 Honey (trace)</span>
+          <br/><small style="color:#e74c3c;font-weight:700;margin-top:6px;display:block;">⚠️ Contains: Egg, Dairy, Gluten (oats)</small>
+          <small style="color:var(--green);font-weight:700;display:block;margin-top:4px;">✅ Add your dog's name for free!</small>
+        </div>
+        <div class="product-tags"><span class="tag">🎉 Fully Customisable</span><span class="tag">🎂 Name on Cake</span></div>
+        <div class="size-selector">
+          <button class="size-btn sel" onclick="selectSize(this,'₹449')">Single Pupcake</button>
+          <button class="size-btn" onclick="selectSize(this,'₹799')">Set of 2</button>
+          <button class="size-btn" onclick="selectSize(this,'₹1,399')">Party Box (6)</button>
+        </div>
+        <div class="product-footer">
+          <div class="price-block"><div class="product-price">₹449</div><div class="product-per">per piece • made to order only</div></div>
+          <button class="btn-small" onclick="orderNow('Birthday Pupcake')">Order Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BERRY BLISS BARS -->
+    <div class="product-card" data-tags="veg grainfree puppy senior">
+      <div class="card-badges"><span class="badge badge-veg">🌿 Pure Veg</span></div>
+      <div class="product-img c5">🫐</div>
+      <div class="product-info">
+        <div class="product-name">Berry Bliss Bars</div>
+        <div class="product-desc">Blueberry and oat bars bursting with antioxidants. A nutritious snack for your active pup or ageing dog who needs that extra boost.</div>
+        <div class="nutr-row">
+          <span class="nutr-chip">🫐 Antioxidants</span>
+          <span class="nutr-chip">🧠 Brain Health</span>
+          <span class="nutr-chip">⚡ Energy</span>
+        </div>
+        <button class="ingredients-toggle" onclick="toggleIng(this)">🌿 See Full Ingredients ▾</button>
+        <div class="ingredients-list">
+          <strong style="display:block;margin-bottom:6px;color:var(--brown);">Every single ingredient:</strong>
+          <span class="ing-item">🫐 Fresh Blueberries</span>
+          <span class="ing-item">🌾 Rolled Oats</span>
+          <span class="ing-item">🍌 Banana</span>
+          <span class="ing-item">🫒 Coconut Oil</span>
+          <span class="ing-item">🥚 Free-range Egg</span>
+          <br/><small style="color:#e74c3c;font-weight:700;margin-top:6px;display:block;">⚠️ Contains: Egg, Gluten (oats)</small>
+        </div>
+        <div class="product-tags"><span class="tag">🫐 Antioxidants</span><span class="tag">🦴 Senior Friendly</span><span class="tag">🐶 Puppy Safe</span></div>
+        <div class="size-selector">
+          <button class="size-btn sel" onclick="selectSize(this,'₹259')">Small 100g</button>
+          <button class="size-btn" onclick="selectSize(this,'₹429')">Medium 200g</button>
+        </div>
+        <div class="product-footer">
+          <div class="price-block"><div class="product-price">₹259</div><div class="product-per">per pack • baked fresh to order</div></div>
+          <button class="btn-small" onclick="orderNow('Berry Bliss Bars')">Order Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHICKEN JERKY -->
+    <div class="product-card" data-tags="protein grainfree puppy">
+      <div class="card-badges"><span class="badge badge-popular">🔥 Popular</span></div>
+      <div class="product-img c6">🥩</div>
+      <div class="product-info">
+        <div class="product-name">Chicken Jerky Strips</div>
+        <div class="product-desc">High-protein oven-baked chicken strips — perfect training rewards. Made from single-ingredient chicken breast, nothing else.</div>
+        <div class="nutr-row">
+          <span class="nutr-chip">💪 High Protein</span>
+          <span class="nutr-chip">🍖 Lean Meat</span>
+          <span class="nutr-chip">🎓 Training</span>
+        </div>
+        <button class="ingredients-toggle" onclick="toggleIng(this)">🌿 See Full Ingredients ▾</button>
+        <div class="ingredients-list">
+          <strong style="display:block;margin-bottom:6px;color:var(--brown);">Every single ingredient:</strong>
+          <span class="ing-item">🍗 Fresh Chicken Breast</span>
+          <br/><small style="color:var(--green);font-weight:700;margin-top:6px;display:block;">✅ Single ingredient. Grain-free. Dairy-free. No seasoning of any kind.</small>
+        </div>
+        <div class="product-tags"><span class="tag">💪 Single Ingredient</span><span class="tag">🌾 Grain-Free</span><span class="tag">🎓 Training Treats</span></div>
+        <div class="size-selector">
+          <button class="size-btn sel" onclick="selectSize(this,'₹299')">Small 100g</button>
+          <button class="size-btn" onclick="selectSize(this,'₹499')">Medium 200g</button>
+          <button class="size-btn" onclick="selectSize(this,'₹849')">Large 400g</button>
+        </div>
+        <div class="product-footer">
+          <div class="price-block"><div class="product-price">₹299</div><div class="product-per">per pack • baked fresh to order</div></div>
+          <button class="btn-small" onclick="orderNow('Chicken Jerky Strips')">Order Now</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FRESHNESS PROMISE -->
+<section id="fresh-promise">
+  <div class="promise-inner">
+    <div class="promise-visual">🧑‍🍳</div>
+    <div class="promise-content">
+      <h2>The Freshness Promise 🌿</h2>
+      <ul class="promise-list">
+        <li><span class="check">✅</span><span><strong>Baked only after you order.</strong> We don't keep pre-made stock. Your dog gets treats baked that day, not weeks ago.</span></li>
+        <li><span class="check">✅</span><span><strong>No preservatives means real freshness.</strong> Commercial treats use chemicals to last months on shelves. Ours don't need to — they're gone in days!</span></li>
+        <li><span class="check">✅</span><span><strong>You can read every ingredient.</strong> Everything in our treats is something you'd find in your own kitchen.</span></li>
+        <li><span class="check">✅</span><span><strong>Made in a clean home kitchen.</strong> Small batches, personal attention — not a factory line.</span></li>
+        <li><span class="check">✅</span><span><strong>Custom allergies & requests welcome.</strong> Just message us before ordering and we'll adjust any recipe for your dog's needs.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ADD PRODUCT -->
+<section id="add-product">
+  <div class="pill-divider" style="background:linear-gradient(90deg,var(--green),var(--orange));"></div>
+  <h2 class="section-title" style="color:var(--green)">🛍️ Add a New Treat</h2>
+  <p class="section-sub">Owner panel — add a new product to your menu</p>
+  <div class="form-box">
+    <div class="form-row">
+      <div class="form-group"><label>🏷️ Treat Name</label><input type="text" placeholder="e.g. Mango Coconut Bites"/></div>
+      <div class="form-group"><label>💰 Starting Price (₹)</label><input type="number" placeholder="e.g. 299"/></div>
+    </div>
+    <div class="form-group"><label>📝 Description</label><textarea placeholder="What makes this treat special?"></textarea></div>
+    <div class="form-group"><label>🌿 Full Ingredients (comma separated)</label><textarea placeholder="e.g. Whole oat flour, natural peanut butter (xylitol-free), banana, egg..." style="min-height:70px;"></textarea></div>
+    <div class="form-row">
+      <div class="form-group"><label>⚠️ Allergen Warning</label><input type="text" placeholder="e.g. Contains: Peanuts, Egg"/></div>
+      <div class="form-group"><label>🐶 Best For</label>
+        <select><option>All Breeds & Sizes</option><option>Small Breeds</option><option>Large Breeds</option><option>Senior Dogs</option><option>Puppies</option><option>Active/Working Dogs</option></select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>🏷️ Filter Category</label>
+        <select><option>Vegetarian</option><option>High Protein</option><option>Grain-Free</option><option>Senior Dogs</option><option>Puppies</option><option>Celebration</option></select>
+      </div>
+      <div class="form-group"><label>📦 Stock Available</label><input type="number" placeholder="Packs in stock (0 = made to order)"/></div>
+    </div>
+    <div class="form-group"><label>🖼️ Product Emoji</label><input type="text" placeholder="e.g. 🥭"/></div>
+    <button class="form-submit" onclick="document.getElementById('form-success').style.display='block'">✅ Add to Menu</button>
+    <div id="form-success">🎉 New treat added to the menu!</div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Pawganic Treats 🐾</div>
+  <p>Homemade love in every bite — baked fresh, only when you order.</p>
+  <div class="socials">
+    <a class="social-btn" href="#">📸</a><a class="social-btn" href="#">💬</a>
+    <a class="social-btn" href="#">🐦</a><a class="social-btn" href="#">▶️</a>
+  </div>
+  <div class="foot-links">
+    <a href="index.html">Home & Treats</a>
+    <a href="about.html">About</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="foot-divider"></div>
+  <p class="foot-copy">© 2025 Pawganic Treats. Made with 🐾 & love. All rights reserved.</p>
+</footer>
+
+<a class="floating-paw" href="contact.html" title="Order Now">🐾</a>
+
+<script>
+  // Filter products
+  function filterProducts(tag, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.product-card').forEach(card => {
+      if (tag === 'all' || (card.dataset.tags && card.dataset.tags.includes(tag))) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  // Toggle ingredient list
+  function toggleIng(btn) {
+    const list = btn.nextElementSibling;
+    list.classList.toggle('open');
+    btn.textContent = list.classList.contains('open')
+      ? '🌿 Hide Ingredients ▴'
+      : '🌿 See Full Ingredients ▾';
+  }
+
+  // Size selector price update
+  function selectSize(btn, price) {
+    const card = btn.closest('.product-card');
+    card.querySelectorAll('.size-btn').forEach(b => b.classList.remove('sel'));
+    btn.classList.add('sel');
+    card.querySelector('.product-price').textContent = price;
+  }
+
+  // Order redirect to contact
+  function orderNow(name) {
+    window.location.href = 'contact.html?order=' + encodeURIComponent(name);
+  }
+</script>
+</body>
+</html>

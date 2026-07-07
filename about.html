@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pawganic Treats 🐾 — About</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  :root{--cream:#fffbe8;--orange:#ff7b2f;--orange-light:#ffb347;--green:#4caf50;--pink:#ff6b9d;--yellow:#ffe135;--brown:#7b4f2e;--dark:#2c1a0e;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+
+  nav{position:sticky;top:0;z-index:999;background:linear-gradient(90deg,var(--orange),var(--pink));display:flex;align-items:center;justify-content:space-between;padding:14px 40px;box-shadow:0 4px 20px rgba(0,0,0,.15);}
+  .nav-logo{font-family:'Pacifico',cursive;font-size:1.8rem;color:#fff;text-decoration:none;letter-spacing:1px;}
+  .nav-logo span{color:var(--yellow);}
+  .nav-links{display:flex;gap:6px;list-style:none;}
+  .nav-links a{color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;padding:7px 16px;border-radius:50px;transition:background .2s;}
+  .nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.25);}
+
+  section{padding:80px 24px;}
+  .section-title{font-family:'Pacifico',cursive;font-size:clamp(1.9rem,4vw,3rem);text-align:center;margin-bottom:10px;}
+  .section-sub{text-align:center;color:#888;font-size:1.05rem;margin-bottom:52px;font-weight:600;}
+  .pill-divider{width:60px;height:6px;border-radius:99px;background:linear-gradient(90deg,var(--orange),var(--pink));margin:0 auto 14px;}
+
+  /* PAGE HERO BANNER */
+  .page-banner{background:linear-gradient(135deg,#fff0f5,#fff8e1);text-align:center;padding:70px 24px 60px;position:relative;overflow:hidden;}
+  .page-banner::before{content:'🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾';position:absolute;top:-10px;left:0;right:0;font-size:2.5rem;letter-spacing:18px;opacity:.06;white-space:nowrap;animation:scroll-paws 18s linear infinite;}
+  @keyframes scroll-paws{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .page-banner h1{font-family:'Pacifico',cursive;font-size:clamp(2.2rem,5vw,4rem);color:var(--pink);text-shadow:3px 3px 0 var(--brown);margin-bottom:12px;animation:slideUp .8s ease;}
+  .page-banner p{font-size:1.1rem;color:var(--brown);font-weight:600;animation:slideUp 1s ease;}
+  @keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+  /* ABOUT */
+  #about{background:linear-gradient(135deg,#fff0f5,#fff8e1);}
+  .about-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:56px;align-items:center;}
+  .about-avatar{width:100%;aspect-ratio:1;border-radius:40% 60% 60% 40%/50% 40% 60% 50%;background:linear-gradient(135deg,var(--orange-light),var(--pink));display:flex;align-items:center;justify-content:center;font-size:7rem;box-shadow:0 16px 48px rgba(255,123,47,.3);animation:morph 6s ease-in-out infinite;}
+  @keyframes morph{0%,100%{border-radius:40% 60% 60% 40%/50% 40% 60% 50%}50%{border-radius:60% 40% 40% 60%/40% 60% 40% 60%}}
+  .about-text .about-name{font-family:'Pacifico',cursive;font-size:2rem;color:var(--orange);margin-bottom:10px;}
+  .about-text p{font-size:1rem;color:#555;line-height:1.8;margin-bottom:14px;}
+  .about-highlights{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;}
+  .highlight-chip{background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;border-radius:50px;padding:7px 18px;font-size:.85rem;font-weight:800;}
+
+  /* TIPS */
+  #tips{background:linear-gradient(135deg,#f3e5f5,#e8eaf6);}
+  .tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:1100px;margin:0 auto;}
+  .tip-card{background:#fff;border-radius:22px;padding:28px 24px;box-shadow:0 6px 22px rgba(0,0,0,.07);border-left:5px solid var(--orange);transition:transform .2s;}
+  .tip-card:nth-child(2){border-left-color:var(--pink);}
+  .tip-card:nth-child(3){border-left-color:var(--green);}
+  .tip-card:nth-child(4){border-left-color:#9c27b0;}
+  .tip-card:nth-child(5){border-left-color:#2196f3;}
+  .tip-card:nth-child(6){border-left-color:var(--yellow);}
+  .tip-card:nth-child(7){border-left-color:var(--orange);}
+  .tip-card:nth-child(8){border-left-color:var(--pink);}
+  .tip-card:nth-child(9){border-left-color:var(--green);}
+  .tip-card:hover{transform:translateY(-5px);}
+  .tip-num{font-family:'Pacifico',cursive;font-size:2.5rem;color:#eee;margin-bottom:8px;}
+  .tip-card h4{font-weight:800;font-size:1rem;margin-bottom:8px;color:var(--dark);}
+  .tip-card p{font-size:.87rem;color:#666;line-height:1.6;}
+
+  footer{background:var(--dark);color:#ccc;text-align:center;padding:40px 24px;}
+  .foot-logo{font-family:'Pacifico',cursive;font-size:1.8rem;color:var(--orange);margin-bottom:12px;}
+  footer p{font-size:.9rem;color:#999;line-height:1.7;}
+  .socials{display:flex;justify-content:center;gap:16px;margin:20px 0;}
+  .social-btn{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:1.3rem;text-decoration:none;transition:background .2s;}
+  .social-btn:hover{background:var(--orange);}
+  .foot-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:20px;}
+  .foot-links a{color:#aaa;text-decoration:none;font-size:.85rem;font-weight:700;transition:color .2s;}
+  .foot-links a:hover{color:var(--orange);}
+  .foot-divider{height:1px;background:rgba(255,255,255,.08);margin:24px 0;}
+  .foot-copy{font-size:.78rem;color:#666;}
+  .floating-paw{position:fixed;bottom:30px;right:30px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--pink));display:flex;align-items:center;justify-content:center;font-size:1.6rem;cursor:pointer;z-index:998;box-shadow:0 6px 24px rgba(255,123,47,.5);animation:pulse 2.5s ease-in-out infinite;text-decoration:none;}
+  @keyframes pulse{0%,100%{box-shadow:0 6px 24px rgba(255,123,47,.5)}50%{box-shadow:0 6px 40px rgba(255,123,47,.8),0 0 0 12px rgba(255,123,47,.1)}}
+
+  @media(max-width:700px){
+    nav{padding:12px 18px;}
+    .nav-links{gap:4px;}
+    .nav-links a{padding:5px 10px;font-size:.8rem;}
+    .about-inner{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Paw<span>ganic</span> 🐾</a>
+  <ul class="nav-links">
+    <li><a href="index.html">🏠 Home & Treats</a></li>
+    <li><a href="about.html" class="active">🐶 About</a></li>
+    <li><a href="reviews.html">⭐ Reviews</a></li>
+    <li><a href="contact.html">📬 Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-banner">
+  <h1>Meet the Maker 🐾</h1>
+  <p>The heart and soul behind every Pawganic treat</p>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="pill-divider" style="background:linear-gradient(90deg,var(--pink),var(--orange));"></div>
+  <h2 class="section-title" style="color:var(--pink)">Our Story 💛</h2>
+  <p class="section-sub">From a home kitchen to your dog's heart</p>
+  <div class="about-inner">
+    <div class="about-avatar">👩‍🍳</div>
+    <div class="about-text">
+      <div class="about-name">Hi, I'm [Your Name]!</div>
+      <p>I'm a passionate dog lover and home baker who started Pawganic Treats out of a simple desire — to give every dog the purest, most wholesome treats possible. When I couldn't find truly natural options in stores, I decided to make them myself!</p>
+      <p>Every treat is handcrafted in small batches using locally sourced, dog-safe ingredients. No fillers, no nasties — just real food made with love. My dream? To have Pawganic Treats in every dog home across the country 🐾</p>
+      <p>When I'm not baking, you'll find me at the park with my own fur babies, testing the latest recipes on the toughest critics!</p>
+      <div class="about-highlights">
+        <span class="highlight-chip">🏡 Home Kitchen</span>
+        <span class="highlight-chip">🐾 Dog Mum</span>
+        <span class="highlight-chip">🌿 Natural Ingredients</span>
+        <span class="highlight-chip">💛 Made with Love</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH TIPS -->
+<section id="tips">
+  <div class="pill-divider" style="background:linear-gradient(90deg,#9c27b0,#2196f3);"></div>
+  <h2 class="section-title" style="color:#7b1fa2">🚀 Grow Pawganic — Tips for You</h2>
+  <p class="section-sub">Your roadmap to scaling the business to every dog home!</p>
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-num">01</div><h4>📱 Social Media is Your BFF</h4><p>Post daily on Instagram & Facebook — dogs + cute content = viral reach. Use reels showing your baking process and dogs enjoying the treats. Live baking sessions build massive trust!</p></div>
+    <div class="tip-card"><div class="tip-num">02</div><h4>🤝 Partner with Vets & Pet Stores</h4><p>Leave sample packs with local vets, pet groomers, and pet supply stores. A vet recommendation is worth more than any ad. Offer them a referral commission.</p></div>
+    <div class="tip-card"><div class="tip-num">03</div><h4>🎁 Subscription Boxes</h4><p>Launch a monthly treat subscription — "Pawganic Treat Box". Customers subscribe and receive fresh treats monthly. Predictable income + loyal customers = business stability.</p></div>
+    <div class="tip-card"><div class="tip-num">04</div><h4>🛒 Sell on Marketplace Platforms</h4><p>List on Instamojo, Amazon, Flipkart, and pet-focused platforms like Heads Up For Tails. This expands your reach beyond your city with zero extra marketing cost.</p></div>
+    <div class="tip-card"><div class="tip-num">05</div><h4>🐾 Dog Events & Pop-Ups</h4><p>Attend dog shows, pet fairs and community events. Set up a cute stall, offer free samples, and collect contact details. Word-of-mouth from these events is gold.</p></div>
+    <div class="tip-card"><div class="tip-num">06</div><h4>💌 Email & WhatsApp Marketing</h4><p>Build a list of customers and send monthly updates, new flavour launches, seasonal offers, and loyalty discounts. A WhatsApp broadcast channel can replace expensive SMS marketing.</p></div>
+    <div class="tip-card"><div class="tip-num">07</div><h4>🏷️ Get FSSAI Certified</h4><p>Getting food-safety certification builds enormous trust, lets you sell in physical retail stores, and opens doors to bulk B2B orders from pet chains and corporate gifting.</p></div>
+    <div class="tip-card"><div class="tip-num">08</div><h4>🌟 Influencer Collaborations</h4><p>Find popular dog Instagram accounts and send free treat samples. Their audience trusts their recommendations and even 1 post can drive hundreds of orders.</p></div>
+    <div class="tip-card"><div class="tip-num">09</div><h4>🎨 Brand Packaging</h4><p>Invest in beautiful, branded packaging with your Pawganic logo. Good packaging makes people photograph their orders and share on social media — free marketing every order!</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Pawganic Treats 🐾</div>
+  <p>Homemade love in every bite — crafted for dogs, by a dog lover.</p>
+  <div class="socials">
+    <a class="social-btn" href="#">📸</a><a class="social-btn" href="#">💬</a>
+    <a class="social-btn" href="#">🐦</a><a class="social-btn" href="#">▶️</a>
+  </div>
+  <div class="foot-links">
+    <a href="index.html">Home & Treats</a>
+    <a href="about.html">About</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="foot-divider"></div>
+  <p class="foot-copy">© 2025 Pawganic Treats. Made with 🐾 & love. All rights reserved.</p>
+</footer>
+
+<a class="floating-paw" href="contact.html" title="Order Now">🐾</a>
+</body>
+</html>
